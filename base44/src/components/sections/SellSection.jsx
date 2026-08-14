@@ -46,8 +46,11 @@ export default function SellSection({ content }) {
     e.preventDefault();
     if (!form.name || !form.phone) return;
     setSubmitting(true);
+
+    const photoList = photos.length ? `\n\nFotos: ${photos.join(", ")}` : "";
+
+    // Tenta salvar no base44, mas não deixa isso travar o envio pro WhatsApp
     try {
-      const photoList = photos.length ? `\n\nFotos: ${photos.join(", ")}` : "";
       await base44.entities.Lead.create({
         name: form.name,
         phone: form.phone,
@@ -59,16 +62,17 @@ export default function SellSection({ content }) {
         message: form.message + photoList,
         status: "Novo",
       });
-      const waMsg = `Olá, Robson! Tenho um imóvel e gostaria de conversar sobre a possibilidade de anunciá-lo.\n\nNome: ${form.name}\nTipo: ${form.property_type}\nCidade: ${form.city}\nBairro: ${form.neighborhood}\nValor desejado: ${form.desired_value}\nMensagem: ${form.message}`;
-      window.open(waLink(content.contact_whatsapp, waMsg), "_blank");
-      setDone(true);
-      setForm({ name: "", phone: "", property_type: "Casa", city: "Santa Luzia", neighborhood: "", desired_value: "", message: "" });
-      setPhotos([]);
     } catch (err) {
-      // error bubbles
-    } finally {
-      setSubmitting(false);
+      // Ignora falha do base44 - o WhatsApp abre de qualquer forma
     }
+
+    const waMsg = `Olá, Robson! Tenho um imóvel e gostaria de conversar sobre a possibilidade de anunciá-lo.\n\nNome: ${form.name}\nTipo: ${form.property_type}\nCidade: ${form.city}\nBairro: ${form.neighborhood}\nValor desejado: ${form.desired_value}\nMensagem: ${form.message}`;
+    window.open(waLink(content.contact_whatsapp, waMsg), "_blank");
+
+    setDone(true);
+    setForm({ name: "", phone: "", property_type: "Casa", city: "Santa Luzia", neighborhood: "", desired_value: "", message: "" });
+    setPhotos([]);
+    setSubmitting(false);
   };
 
   const inputCls = "w-full bg-white/5 border border-white/10 text-white text-sm rounded-sm px-4 py-3 focus:border-gold focus:outline-none transition-colors placeholder:text-slate-muted/60";
