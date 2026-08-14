@@ -1,0 +1,121 @@
+{
+  "name": "Property",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Nome do im\u00f3vel",
+      "description": "T\u00edtulo de exibi\u00e7\u00e3o do im\u00f3vel"
+    },
+    "type": {
+      "type": "string",
+      "title": "Tipo",
+      "enum": [
+        "Casa",
+        "S\u00edtio",
+        "Terreno",
+        "Fazenda",
+        "Outros"
+      ],
+      "default": "Casa"
+    },
+    "purpose": {
+      "type": "string",
+      "title": "Finalidade",
+      "enum": [
+        "Venda",
+        "Aluguel"
+      ],
+      "default": "Venda"
+    },
+    "price": {
+      "type": "number",
+      "title": "Pre\u00e7o",
+      "description": "Valor em reais"
+    },
+    "city": {
+      "type": "string",
+      "title": "Cidade",
+      "default": "Santa Luzia"
+    },
+    "neighborhood": {
+      "type": "string",
+      "title": "Bairro"
+    },
+    "address": {
+      "type": "string",
+      "title": "Endere\u00e7o"
+    },
+    "area": {
+      "type": "number",
+      "title": "\u00c1rea (m\u00b2)"
+    },
+    "bedrooms": {
+      "type": "number",
+      "title": "Quartos"
+    },
+    "bathrooms": {
+      "type": "number",
+      "title": "Banheiros"
+    },
+    "parking": {
+      "type": "number",
+      "title": "Vagas"
+    },
+    "description": {
+      "type": "string",
+      "title": "Descri\u00e7\u00e3o",
+      "format": "textarea"
+    },
+    "features": {
+      "type": "array",
+      "title": "Caracter\u00edsticas",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "Dispon\u00edvel",
+        "Reservado",
+        "Vendido"
+      ],
+      "default": "Dispon\u00edvel"
+    },
+    "featured": {
+      "type": "boolean",
+      "title": "Destaque",
+      "default": false
+    },
+    "active": {
+      "type": "boolean",
+      "title": "Ativo",
+      "default": true
+    },
+    "map_link": {
+      "type": "string",
+      "title": "Link do mapa"
+    },
+    "additional_info": {
+      "type": "string",
+      "title": "Informa\u00e7\u00f5es adicionais",
+      "format": "textarea"
+    },
+    "photos": {
+      "type": "array",
+      "title": "Fotos",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "purpose",
+    "price",
+    "city"
+  ]
+}
