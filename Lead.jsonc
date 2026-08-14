@@ -1,0 +1,76 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Nome"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Telefone / WhatsApp"
+    },
+    "email": {
+      "type": "string",
+      "title": "E-mail"
+    },
+    "interest_type": {
+      "type": "string",
+      "title": "Tipo de interesse",
+      "enum": [
+        "Comprar",
+        "Vender",
+        "Investir",
+        "Agendar visita",
+        "Informa\u00e7\u00e3o",
+        "Anunciar im\u00f3vel"
+      ],
+      "default": "Informa\u00e7\u00e3o"
+    },
+    "property_id": {
+      "type": "string",
+      "title": "ID do im\u00f3vel"
+    },
+    "property_name": {
+      "type": "string",
+      "title": "Im\u00f3vel de interesse"
+    },
+    "property_type": {
+      "type": "string",
+      "title": "Tipo do im\u00f3vel (venda)"
+    },
+    "city": {
+      "type": "string",
+      "title": "Cidade (venda)"
+    },
+    "neighborhood": {
+      "type": "string",
+      "title": "Bairro (venda)"
+    },
+    "desired_value": {
+      "type": "string",
+      "title": "Valor desejado (venda)"
+    },
+    "message": {
+      "type": "string",
+      "title": "Mensagem",
+      "format": "textarea"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "Novo",
+        "Em atendimento",
+        "Contatado",
+        "Convertido",
+        "Arquivado"
+      ],
+      "default": "Novo"
+    }
+  },
+  "required": [
+    "name",
+    "phone"
+  ]
+}
