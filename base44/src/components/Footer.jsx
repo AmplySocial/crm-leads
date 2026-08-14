@@ -76,17 +76,13 @@ export default function Footer({ content }) {
 
         <div className="gold-hairline my-10" />
 
-        <div className="flex flex-col items-center gap-3">
-          <p className="text-xs text-slate-muted text-center">
-            {new Date().getFullYear()} {content.corretor_name}. Todos os direitos reservados.
-          </p>
-          <Link
-            to="/admin"
-            title="Painel administrativo"
-            className="text-slate-muted/40 hover:text-gold transition-colors text-2xl leading-none"
-          >
+        <div className="flex items-center justify-center gap-1">
+          <Link to="/admin" title="Painel administrativo" className="text-slate-muted hover:text-gold transition-colors">
             ©
           </Link>
+          <span className="text-slate-muted">
+            {new Date().getFullYear()} {content.corretor_name}. Todos os direitos reservados.
+          </span>
         </div>
       </div>
     </footer>
